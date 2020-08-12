@@ -1,6 +1,6 @@
 import React from 'react'
 import {Container, Row, Col} from 'reactstrap'
-import { FaFacebookSquare, FaInstagram } from 'react-icons/fa';
+import { FaFacebookSquare, FaInstagram, FaTwitter } from 'react-icons/fa';
 import Link from './link';
 import styled from "styled-components"
 
@@ -23,10 +23,10 @@ const Footer = styled.footer`
   }
 `
 
-let SocialLink = ({Icon}) => (
-  <Link to="/" className="mr-2">
+let SocialLink = ({Icon, path}) => (
+  <a href={path} className="mr-2">
     <Icon size={30}/>
-  </Link>
+  </a>
 )
 
 let FooterLink = ({to, children}) => (
@@ -38,7 +38,7 @@ let FooterLink = ({to, children}) => (
 )
 
 export default () => (
-  <Footer>
+  <Footer color="dark">
     <Container>
       <Row>
         <Col>
@@ -61,8 +61,9 @@ export default () => (
         </Col>
         <Col>
           <h5>Contact Us</h5>
-          <SocialLink Icon={FaFacebookSquare}/>
-          <SocialLink Icon={FaInstagram}/>
+          <SocialLink Icon={FaFacebookSquare} path="https://www.facebook.com/alamopost2/" />
+          <SocialLink Icon={FaInstagram} path="https://www.instagram.com/" />
+          <SocialLink Icon={FaTwitter} path="https://www.twitter.com/" />
         </Col>
       </Row>
     </Container>
