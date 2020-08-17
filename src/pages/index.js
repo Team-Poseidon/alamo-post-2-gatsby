@@ -14,7 +14,7 @@ let StyledBackground = styled.div`
 `
 
 export default () => (
-	<Layout>
+	<>
 		<SEO title="Home" />
 		<Slider />
 		<Container className="pt-4">
@@ -29,11 +29,11 @@ export default () => (
 				<Service title="Financial" Icon={FaRegMoneyBillAlt} path="/financial-services" />
 				<Service title="Health" Icon={FaMedkit} path="/health-services" />
 				<Service title="Veteran Affairs" Icon={FaFlagUsa} path="/veteran-services" />
-				<Service title="Legion Caps" Icon={FaGraduationCap} isInternal="false" path="http://emblem.legion.org/help_uniform_cap.asp" />
+				<Service title="Legion Caps" Icon={FaGraduationCap} path="http://emblem.legion.org/help_uniform_cap.asp" />
 			</Row>
 		</Container>
 		<StyledBackground>
 			<Benefits />
 		</StyledBackground>
-	</Layout>
+	</>
 )

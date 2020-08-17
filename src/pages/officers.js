@@ -5,22 +5,23 @@ import Link from '../components/link'
 import { Row,Col, Container } from 'reactstrap'
 import PageTitle from '../components/page-title'
 import { graphql } from 'gatsby'
-
+import Img from 'gatsby-image'
 
 export default ({data}) => {
 	const officers = data.allStrapiOfficers.edges
 	return (
-		<Layout>
+		<React.Fragment>
 			<PageTitle title="Officers"/>
 			<Container>
 				<Row className="py-5">
-					<Col md={4} className="m-auto">
+					<Col md={12} className="d-flex justify-content-around">
 						{officers.map( ({node}) => {
-							const {id, Email, Name, Title, avatar} = node
-							console.log({id, Email, Name, Title, avatar})
+							const {strapiId, Name, Title, avatar} = node
+							console.log(node)
 							return (
-								<Link to={id}>
+								<Link key={strapiId} to={`/officers/${strapiId}`} >
 									<Box>
+										<Img fluid={avatar.childImageSharp.fluid} />
 										<h4>{Name}</h4>
 										<p>{Title}</p>
 									</Box>
@@ -31,24 +32,23 @@ export default ({data}) => {
 					</Col>
 				</Row>
 			</Container>
-		</Layout>
+		</React.Fragment>
 	)
 }
 
 export const query = graphql`
-query Officer {
+query Officers {
 	allStrapiOfficers {
 	  edges {
 		node {
-		  id
+		  strapiId
 		  Name
 		  Title
-		  Email
 		  avatar {
 			childImageSharp {
-			  fixed(width: 160) {
-				src
-			  }
+				fluid(maxWidth: 200, maxHeight: 200) {
+					...GatsbyImageSharpFluid
+				}
 			}
 		  }
 		}

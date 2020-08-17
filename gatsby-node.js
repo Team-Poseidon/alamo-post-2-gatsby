@@ -1,7 +1,32 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
+const path = require('path')
 
-// You can delete this file if you're not using it
+exports.createPages = async ({graphql, actions}) => {
+	const { createPage } = actions
+	const result = await graphql(`
+	{
+		officers: allStrapiOfficers {
+		  edges {
+			node {
+			  strapiId
+			}
+		  }
+		}
+	  }
+	`)
+
+	if(result.errors){
+		throw result.errors
+	}
+
+	// Create officer pages.
+	const officers = result.data.officers.edges
+	officers.forEach( (officer, idx) => {
+		createPage({
+			path: `/officers/${officer.node.strapiId}`,
+			component:  path.resolve('src/templates/officerTemplate.js'),
+			context: {
+				id: officer.node.strapiId,
+			}
+		})
+	})
+}
