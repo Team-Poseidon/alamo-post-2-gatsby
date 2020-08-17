@@ -3,10 +3,6 @@
   {"name": "Officers", "url": "/officers"},
   {"name": "News", "url": "/blog-posts"},
   {"name": "Rentals", "url": "/rentals"},
-  {"name": "About Us", "url": "", "dropdownItems": [
-    {"name": "Legion Riders", "url": "/legion-riders"},
-    {"name": "Sons of The American Legion", "url": "/sons-of-american-legion"},
-    {"name": "Women's Auxillary", "url": "/womens-auxillary"}
-  ]},
+  {"name": "About Us", "url": "/about-us"},
   {"name": "Contact", "url": "/contact"}
 ]

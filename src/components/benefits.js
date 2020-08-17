@@ -9,13 +9,9 @@ let StyledImg = styled(props => <Img {...props}/>)`
   perspective-origin: left center;
   overflow: visible !important;
   picture, img {
-    transform: rotateY(-35deg) rotateX(15deg);
     box-shadow: 25px 60px 125px -25px rgba(80,102,144,.1), 16px 40px 75px -40px rgba(0,0,0,.2);
     border-radius: .625rem;
     transition: 1s !important;
-    &:hover {
-      transform: rotateY(-30deg) rotateX(15deg);
-    }
   }
 `
 

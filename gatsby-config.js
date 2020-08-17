@@ -50,7 +50,7 @@ module.exports = {
       options: {
         apiURL: process.env.API_URL || "http://localhost:1337",
         // List of the Content Types you want to be able to request from Gatsby.
-        contentTypes: ["blog-posts","categories"],
+        contentTypes: ["blog-posts","categories", "officers"],
         queryLimit: 1000,
       },
     },
