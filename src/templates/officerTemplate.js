@@ -25,7 +25,6 @@ query OfficerQuery($id: Int!) {
 
 const Officer = ({data}) => {
 	const {Name, Title, Email, Biography, avatar} = data.strapiOfficers
-
 	return(
 		<React.Fragment>
 			<Container className="my-4">

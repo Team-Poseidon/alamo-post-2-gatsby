@@ -1,7 +1,6 @@
 import React from "react"
 
 import { Container, Row } from 'reactstrap'
-import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { FaRegMoneyBillAlt, FaMedkit, FaFlagUsa, FaGraduationCap } from 'react-icons/fa'
 import Slider from '../components/slider'

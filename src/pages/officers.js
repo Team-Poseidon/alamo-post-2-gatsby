@@ -1,5 +1,4 @@
 import React from 'react'
-import Layout from '../components/layout'
 import Box from '../components/box'
 import Link from '../components/link'
 import { Row,Col, Container } from 'reactstrap'
@@ -17,7 +16,7 @@ export default ({data}) => {
 					<Col md={12} className="d-flex justify-content-around">
 						{officers.map( ({node}) => {
 							const {strapiId, Name, Title, avatar} = node
-							console.log(node)
+							console.table(node)
 							return (
 								<Link key={strapiId} to={`/officers/${strapiId}`} >
 									<Box>

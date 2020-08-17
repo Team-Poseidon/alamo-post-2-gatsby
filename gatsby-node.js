@@ -20,7 +20,7 @@ exports.createPages = async ({graphql, actions}) => {
 
 	// Create officer pages.
 	const officers = result.data.officers.edges
-	officers.forEach( (officer, idx) => {
+	officers.forEach( officer => {
 		createPage({
 			path: `/officers/${officer.node.strapiId}`,
 			component:  path.resolve('src/templates/officerTemplate.js'),
