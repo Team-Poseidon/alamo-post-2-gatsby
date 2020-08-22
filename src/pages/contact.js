@@ -1,7 +1,6 @@
 import React from 'react'
 import { Row, Col, Container } from 'reactstrap'
 import Link from '../components/link'
-import Layout from '../components/layout'
 import ContactForm from '../components/form'
 import { FaPhone, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa'
 import Styled from 'styled-components'
@@ -34,7 +33,7 @@ let ContactItem = ({text, type, Icon, href}) => (
 export default ({data}) => {
   let {address, email, phone} = data.site.siteMetadata
   return (
-    <Layout>
+    <>
       <PageTitle title="Contact Us"/>
       <Container>
         <Row className="py-5">
@@ -51,7 +50,7 @@ export default ({data}) => {
           </Col>
         </Row>
       </Container>
-    </Layout>
+    </>
   )
 }
 

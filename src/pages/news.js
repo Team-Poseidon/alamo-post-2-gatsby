@@ -7,22 +7,21 @@ import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 
 export default ({data}) => {
-	const officers = data.allStrapiOfficers.edges
+	const newsPosts = data.allStrapiNewsPosts.edges
 	return (
 		<React.Fragment>
-			<PageTitle title="Officers"/>
+			<PageTitle title="Post News"/>
 			<Container>
 				<Row className="py-5">
 					<Col md={12} className="d-flex justify-content-around">
-						{officers.map( ({node}) => {
-							const {strapiId, Name, Title, avatar} = node
-							console.table(node)
+						{newsPosts.map( ({node}) => {
+							const {strapiId, title, content,slug, avatar} = node
 							return (
-								<Link key={strapiId} to={`/officers/${strapiId}`} >
+								<Link key={strapiId} to={`/news/${slug}`} >
 									<Box>
 										<Img fluid={avatar.childImageSharp.fluid} />
-										<h4>{Title}</h4>
-										<p>{Name}</p>
+										<h4>{title}</h4>
+										<p>{content}</p>
 									</Box>
 								</Link>
 							)
@@ -36,22 +35,24 @@ export default ({data}) => {
 }
 
 export const query = graphql`
-query Officers {
-	allStrapiOfficers {
+query NewsPostsQuery {
+	allStrapiNewsPosts {
 	  edges {
 		node {
 		  strapiId
-		  Name
-		  Title
+		  title
+		  content
+		  slug
 		  avatar {
 			childImageSharp {
-				fluid(maxWidth: 200, maxHeight: 200) {
-					...GatsbyImageSharpFluid
-				}
+			  fluid(maxWidth: 350){
+				  ...GatsbyImageSharpFluid
+			  }
 			}
 		  }
 		}
 	  }
 	}
   }
+  
 `

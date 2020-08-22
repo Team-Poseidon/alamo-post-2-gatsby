@@ -5,26 +5,26 @@ import Img from 'gatsby-image'
 
 
 export const query = graphql`
-query OfficerQuery($id: Int!) {
-	strapiOfficers(strapiId: {eq: $id}) {
+query NewsPostQuery($id: Int!) {
+	strapiNewsPosts(strapiId: {eq: $id}) {
 	  strapiId
-	  Name
-	  Title
-	  Email
-	  Biography
+	  title
+	  content
+	  slug
+	  updated_at(locale: "en-US", formatString: "MMM Do YYYY, h:mm:ss a")
 	  avatar {
 		childImageSharp {
-		  fluid(maxWidth: 250){
-			...GatsbyImageSharpFluid		
+		  fluid(maxWidth: 350) {
+			...GatsbyImageSharpFluid
 		  }
 		}
 	  }
 	}
-  }  
+  } 
 `
 
-const Officer = ({data}) => {
-	const {Name, Title, Email, Biography, avatar} = data.strapiOfficers
+const News = ({data}) => {
+	const {Name, Title, Email, Biography, avatar} = data.strapiOfficer
 	return(
 		<React.Fragment>
 			<Container className="my-4">
@@ -43,4 +43,4 @@ const Officer = ({data}) => {
 }
 
 
-export default Officer
+export default News
