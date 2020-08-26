@@ -1,5 +1,5 @@
 require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV}`,
+  path: `.env`,
 })
 
 let facebook_pixel = ''
@@ -48,9 +48,9 @@ module.exports = {
     {
       resolve: "gatsby-source-strapi",
       options: {
-        apiURL: process.env.API_URL || "http://localhost:1337",
+        apiURL: process.env.API_URL  || "http://localhost:1337",
         // List of the Content Types you want to be able to request from Gatsby.
-        queryLimit: 1000,
+        queryLimit: 2000,
         singleTypes: ['about'],
         contentTypes: ["officers", `blog-posts`, `news-posts`, `events`],
       },
