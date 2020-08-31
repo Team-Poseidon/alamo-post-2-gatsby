@@ -2,7 +2,7 @@ import React from 'react'
 import Link from './link'
 import styled from 'styled-components'
 
-let Button = styled.div`
+let Button = styled.button`
   -webkit-appearance: unset !important;
   border-radius: 0.25rem;
   background: ${props => props.theme.primary};
