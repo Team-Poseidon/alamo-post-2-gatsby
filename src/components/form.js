@@ -9,8 +9,24 @@ function encode(data){
 
 const FieldGroup = styled.div`
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: column wrap;
   width: 100%;
+  align-items: stretch;
+  justify-content: space-around;
+  margin: 1rem 0;
+`
+
+const StyledInput = styled.input`
+  min-height: 2em;
+  border: 1px solid gray;
+`
+const StyledLabel = styled.label`
+  margin: 0;
+`
+
+const StyledTextArea = styled.textarea`
+  height: 200px;
+  resize: none;
 `
 
 export default function Contact() {
@@ -47,24 +63,24 @@ export default function Contact() {
     <input type="hidden" name="form-name" aria-label="hidden" value="contact"/>
 
     <FieldGroup>
-      <label htmlFor="fullname">Full Name:</label>
-      <input type="text" name="fullname" aria-label="fullname" onChange={handleChange} />
+      <StyledLabel htmlFor="fullname">Full Name:</StyledLabel>
+      <StyledInput type="text" name="fullname" aria-label="fullname" onChange={handleChange} />
     </FieldGroup>
-    <div>
-      <label htmlFor="email">Email:</label>
-      <input type="email" name="email" aria-label="email" onChange={handleChange} />
-    </div>
-    <div>
-      <label htmlFor="phone">Phone:</label>
-      <input type="text" name="phone" aria-label="phone" onChange={handleChange} />
-    </div>
-    <div>
-      <label htmlFor="comments">Comments:</label>
-      <textarea name="comments" aria-label="comments" onChange={handleChange}></textarea>
-    </div>
-    <div>
+    <FieldGroup>
+      <StyledLabel htmlFor="email">Email:</StyledLabel>
+      <StyledInput type="email" name="email" aria-label="email" onChange={handleChange} />
+    </FieldGroup>
+    <FieldGroup>
+      <StyledLabel htmlFor="phone">Phone:</StyledLabel>
+      <StyledInput type="text" name="phone" aria-label="phone" onChange={handleChange} />
+    </FieldGroup>
+    <FieldGroup>
+      <StyledLabel htmlFor="comments">Comments:</StyledLabel>
+      <StyledTextArea name="comments" aria-label="comments" maxLength="30" onChange={handleChange}></StyledTextArea>
+    </FieldGroup>
+    <FieldGroup>
       <Button type="submit">Submit</Button>
-    </div>
+    </FieldGroup>
   </form>
   )
 }

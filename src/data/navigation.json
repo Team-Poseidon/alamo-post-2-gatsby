@@ -1,8 +1,7 @@
 [
   {"name": "Home", "url": "/"},
   {"name": "Officers", "url": "/officers"},
-  {"name": "News", "url": "/blog-posts"},
-  {"name": "Rentals", "url": "/rentals"},
+  {"name": "News", "url": "/news"},
   {"name": "About Us", "url": "/about-us"},
   {"name": "Contact", "url": "/contact"}
 ]
