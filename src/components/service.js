@@ -8,10 +8,16 @@ let Service = ({title, path, Icon = FaHome}) => {
     return (
         <Col>
             <Box>
-                <Link to={path} >
-                    <Icon size={30} />
-                    <h4 className="mt-3">{title}</h4>
-                </Link>   
+                {path.startsWith("http") && <a href={path}>
+                        <Icon size={30} />
+                        <h4 className="mt-3">{title}</h4>
+                    </a>
+                }
+                {!path.startsWith("http") && <Link to={path} >
+                        <Icon size={30} />
+                        <h4 className="mt-3">{title}</h4>
+                    </Link>   
+                }
             </Box>
         </Col>
     )
