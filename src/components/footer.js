@@ -5,6 +5,7 @@ import Link from './link';
 import styled from "styled-components"
 
 const Footer = styled.footer`
+  margin-top: 1.5rem;
   padding: 3rem 0;
   background: gold;
   border-top: 2px solid #4585fd;
