@@ -1,5 +1,4 @@
 import React from 'react'
-import Box from '../components/box'
 import Link from '../components/link'
 import { Row,Col, Container } from 'reactstrap'
 import PageTitle from '../components/page-title'
