@@ -1,12 +1,22 @@
 import React from 'react'
+import SEO from "../components/seo"
 import { Row, Col, Container } from 'reactstrap'
 import PageTitle from '../components/page-title'
-import { graphql } from 'gatsby'
+import { useStaticQuery, graphql } from 'gatsby'
 
-export default ({data}) => {
+const AboutUsPage = () => {
+  const data = useStaticQuery(graphql`
+  query AboutPageQuery {
+    strapiAbout {
+      title
+      content
+    }
+  }
+  `)
   let {title, content} = data.strapiAbout
   return (
     <>
+      <SEO title="About Us" />
       <PageTitle title={title}/>
       <Container>
         <Row className="py-5">
@@ -19,11 +29,4 @@ export default ({data}) => {
   )
 }
 
-export const query = graphql`
-query AboutPageQuery {
-  strapiAbout {
-    title
-    content
-  }
-}
-`
+export default AboutUsPage 
