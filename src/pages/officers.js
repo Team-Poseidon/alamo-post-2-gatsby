@@ -1,10 +1,11 @@
 import React from 'react'
 import Link from '../components/link'
-import { Row,Col, Container } from 'reactstrap'
+import SEO from '../components/seo'
 import PageTitle from '../components/page-title'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
+
 
 const OfficerCard = styled.div`
 	border-radius: 0.5rem;
@@ -14,36 +15,37 @@ const OfficerCard = styled.div`
 	text-align: center;
 	min-height: min-content;
 `
-
-const StyledLink = styled(Link)`
-	height: max-content;
+const StyledContainer = styled.div`
+	padding: 2rem 0;
+	max-width: 1500px;
+	margin: 0 10vw;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(260px, max-content));
+	grid-template-rows: auto;
+	grid-gap: 1rem;
 `
-
 
 export default ({data}) => {
 	const officers = data.allStrapiOfficers.edges
 	return (
 		<React.Fragment>
 			<PageTitle title="Officers"/>
-			<Container>
-				<Row className="py-5">
-					<Col md={12} className="d-flex justify-content-around flex-wrap">
-						{officers.map( ({node}) => {
-							const {strapiId, Name, Title, avatar} = node
-							return (
-								<StyledLink key={strapiId} to={`/officers/${strapiId}`} >
-									<OfficerCard>
-										<Img fixed={avatar.childImageSharp.fixed} />
-										<h4>{Title}</h4>
-										<p>{Name}</p>
-									</OfficerCard>
-								</StyledLink>
-							)
-						})}
-						
-					</Col>
-				</Row>
-			</Container>
+			<SEO title="Elected Officers" />
+			<StyledContainer>
+				{officers.map( ({node}) => {
+					const {strapiId, Name, Title, avatar} = node
+					const officerUrl = "/officers/" + strapiId
+						return (
+							<OfficerCard>
+								<Link key={strapiId} to={officerUrl}>
+									<Img fixed={avatar.childImageSharp.fixed} />
+									<h4>{Title}</h4>
+									<p>{Name}</p>
+								</Link>
+							</OfficerCard>
+						)
+				})}
+			</StyledContainer>
 		</React.Fragment>
 	)
 }
