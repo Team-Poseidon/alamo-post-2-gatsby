@@ -55,13 +55,17 @@ export default () => (
         <Col>
           <h5>Resources</h5>
           <ul>
-            <FooterLink to="/">Item</FooterLink>
+            <FooterLink to="/financial-services">Financial Services</FooterLink>
+            <FooterLink to="/health-services">Health Services</FooterLink>
+            <FooterLink to="/veteran-services">Veteran Services</FooterLink>
           </ul>
         </Col>
         <Col>
-          <h5>Company</h5>
+          <h5>Organizations</h5>
           <ul>
-            <FooterLink to="/">Item</FooterLink>
+            <FooterLink to="/legion-riders">American Legion Riders</FooterLink>
+            <FooterLink to="/soal">Sons of the American Legion</FooterLink>
+            <FooterLink to="/legion-auxiliary">American Legion Auxiliary</FooterLink>
           </ul>
         </Col>
         <Col>
